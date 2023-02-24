@@ -1,16 +1,25 @@
 class Player
 
     @@other_char = ""
+    attr_accessor :name
+    attr_accessor :x_or_o
+    attr_accessor :positions
 
-    def initialize(p_what, name, X_or_O)
+    def initialize(p_what, name="", x_or_o="")
         @p_what = p_what
         @name = get_name()
-        @X_or_O = get_char(@p_what)
+        @x_or_o = get_char(@p_what)
+        @positions = []
     end
 
     def get_name
-        puts "What is your name?"
-        return gets.chomp
+        if @p_what == 1
+            puts "Player 1, what is your name?"
+            return gets.chomp
+        else
+            puts "Player 2, what is your name?"
+            return gets.chomp
+        end
     end
 
     def get_char(p_what)
@@ -22,10 +31,12 @@ class Player
                 if choose == 'X' or choose == 'O'
                     @@other_game_piece = choose
                     return choose
+                else
+                    puts "Not a valid choise"
                 end
             end
         else
-            if @@other_game_piece == 'X':
+            if @@other_game_piece == 'X'
                 @@other_game_piece = 'O'
                 return 'O'
             else
@@ -34,13 +45,4 @@ class Player
             end
         end
     end
-
-    def play(p1, p2)
-
-    end
-    
-
-
-
-
-
+end

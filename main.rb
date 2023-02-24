@@ -1,5 +1,5 @@
-include './players.rb'
-include './game.rb'
+require './players.rb'
+require './game.rb'
 
 p1 = Player.new(1)
 p2 = Player.new(2)
